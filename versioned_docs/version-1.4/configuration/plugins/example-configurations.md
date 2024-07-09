@@ -669,7 +669,8 @@ end
 ```lua
 {
   "folke/trouble.nvim",
-    cmd = "TroubleToggle",
+  opts = {}, -- for default options, refer to the configuration section for custom setup.
+  cmd = "Trouble",
 },
 ```
 
@@ -678,12 +679,13 @@ Also define keybindings in `config.lua`
 ```lua
 lvim.builtin.which_key.mappings["t"] = {
   name = "Diagnostics",
-  t = { "<cmd>TroubleToggle<cr>", "trouble" },
-  w = { "<cmd>TroubleToggle workspace_diagnostics<cr>", "workspace" },
-  d = { "<cmd>TroubleToggle document_diagnostics<cr>", "document" },
-  q = { "<cmd>TroubleToggle quickfix<cr>", "quickfix" },
-  l = { "<cmd>TroubleToggle loclist<cr>", "loclist" },
-  r = { "<cmd>TroubleToggle lsp_references<cr>", "references" },
+  T = { "<cmd>Trouble<cr>", "trouble all" },
+  t = { "<cmd>Trouble diagnostics toggle<cr>", "trouble" },
+  b = { "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", "buffers" },
+  s = { "<cmd>Trouble symbols toggle focus=false<cr>", "symbols" },
+  q = { "<cmd>Trouble qflist toggle<cr>", "quickfix" },
+  l = { "<cmd>Trouble loclist toggle<cr>", "loclist" },
+  r = { "<cmd>Trouble lsp toggle focus=false win.position=right<cr>", "references" },
 },
 ```
 
